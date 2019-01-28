@@ -7,7 +7,7 @@ import {BaseService} from 'es6-base-servicos';
 
 class TesteServico extends BaseService {
 
-  getNoticias(){
+  getAdministracoes(){
     return this.conex.get('service/basico/administracao/ativaseconsolidadas');
   }
 
@@ -17,7 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     let service = new TesteServico();
-    service.getNoticias().then(retorno => {console.log(retorno)} ).catch(retorno => {console.log(retorno)});
+    service.getAdministracoes().then(retorno => {console.log(retorno)} ).catch(retorno => {console.log(retorno)});
   }
 
   render() {

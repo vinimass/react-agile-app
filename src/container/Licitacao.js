@@ -43,6 +43,12 @@ export default class Licitacao extends Component {
         this.setState({licitacoes: state.licitacoes.concat(novaLicitacao)})
     }
 
+    apagarLicitacao = (event) => {
+        var array = [...this.state.licitacoes];
+        array.splice(event.target.value, 1);
+        this.setState({licitacoes: array});
+    }
+
     render() {
         return (
             <div className="container" style={{paddingTop: '25px'}}>
@@ -57,13 +63,13 @@ export default class Licitacao extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.licitacoes.map((licitacoes, index) => {
+                        {this.state.licitacoes.map((licitacao, index) => {
                             return (
-                                <tr key={licitacoes.id}>
-                                    <th scope="row">{licitacoes.id}</th>
-                                    <td>{licitacoes.nome}</td>
-                                    <td>{licitacoes.data}</td>
-                                    <td><button type="button" className="btn btn-danger btn-sm">Remover</button></td>
+                                <tr key={licitacao.index}>
+                                    <th scope="row">{licitacao.id}</th>
+                                    <td>{licitacao.nome}</td>
+                                    <td>{licitacao.data}</td>
+                                    <td><button type="button" onClick={this.apagarLicitacao} value={index} className="btn btn-danger btn-sm">Remover</button></td>
                                 </tr>
                             )
                         })}

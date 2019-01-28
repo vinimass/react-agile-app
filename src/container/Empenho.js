@@ -17,6 +17,7 @@ export default class Empenho extends Component {
             administracoes: [],
             administracaoSelecionada: 0
         }
+        console.log('PASSEI NO CONSTRUTOR')
     }
 
 
@@ -67,11 +68,13 @@ export default class Empenho extends Component {
                         </tbody>
                         </table> */}
 
-                    <select onChange={this.changeAdministracao} value={this.state.administracaoSelecionada} className="btn btn-secondary dropdown-toggle"  >
+                    <select onChange={this.changeAdministracao} className="btn btn-secondary dropdown-toggle"  >
                         {this.state.administracoes.map((administracao, i) =>
                             <option key={i} value={administracao.codigo}>{administracao.nome} [{administracao.codigo}]</option>
                         )}
                     </select>
+                    <br/>
+                    Administração selecionada: {this.state.administracaoSelecionada}
                 </div>
             )
         } else {

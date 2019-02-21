@@ -24,7 +24,9 @@ export default class Empenho extends Component {
     componentDidMount() {
         let service = new TesteServico();
         service.getNoticias().then(
-            retorno => { this.setState({ administracoes: retorno.data }) }
+            retorno => { this.setState({ 
+                administracoes: retorno.data
+            }) }
         );
     }
 
@@ -68,7 +70,7 @@ export default class Empenho extends Component {
                         </tbody>
                         </table> */}
 
-                    <select onChange={this.changeAdministracao} className="btn btn-secondary dropdown-toggle"  >
+                    <select onChange={this.changeAdministracao} className="btn btn-secondary dropdown-toggle" >
                         {this.state.administracoes.map((administracao, i) =>
                             <option key={i} value={administracao.codigo}>{administracao.nome} [{administracao.codigo}]</option>
                         )}
